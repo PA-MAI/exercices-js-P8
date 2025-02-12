@@ -5,7 +5,7 @@ function calculateAverage(a = [], f) {
         return "No numbers to calculate average";
     }
 
-    f = f //|| function(n) { return n; };  
+    f = f || function(n) { return n; };  
     
     var b = a.length,
         c = 0, i;
