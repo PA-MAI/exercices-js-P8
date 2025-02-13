@@ -1,14 +1,37 @@
 function convertToBinary() {
-    let decimal = parseInt(document.getElementById("decimalInput").value);
-    let binary = "";
+    let inputField = document.getElementById("decimalInput");
+    let resultField = document.getElementById("binaryResult");
+    let inputValue = inputField.value.trim();
 
-    // Conversion en binaire en utilisant % et /
-    while (decimal > 0) {
-        // Prend le reste et le place à gauche
-        binary = (decimal % 2) + binary; 
-        // Divise le nombre restant par 2
-        decimal = decimal / 2 | 0; 
+    // Vérification avec RegExp : uniquement chiffres et un point valide
+    if (!/^\d+(\.\d+)?$/.test(inputValue)) {
+        resultField.textContent = "Erreur : Entrez un nombre valide (ex: 10 ou 10.5)";
+        return;
     }
-    //Résultat
-    document.getElementById("binaryResult").textContent = binary || "0";
+
+    let decimal = parseFloat(inputValue);
+    // Tronque la partie décimale
+    let entier = decimal | 0;  
+    let fraction = decimal - entier;
+
+    // Conversion de la partie entière
+    let binaryInt = "";
+    while (entier > 0) {
+        binaryInt = (entier % 2) + binaryInt;
+        entier = (entier / 2) | 0;
+    }
+    binaryInt = binaryInt || "0";
+
+    // Conversion de la partie fractionnaire
+    let binaryFraction = "";
+    let precision = 10;
+    while (fraction > 0 && precision > 0) {
+        fraction *= 2;
+        binaryFraction += (fraction | 0);
+        fraction -= (fraction | 0);
+        precision--;
+    }
+
+    // Affichage du résultat
+    resultField.textContent = binaryFraction ? `${binaryInt}.${binaryFraction}` : binaryInt;
 }

@@ -15,8 +15,8 @@ function pairNumbers(min, max) {
     return result;
   
 }
-let startPairNumber = pairNumbers(1, 10)
-console.log (startPairNumber) 
+//let startPairNumber = pairNumbers(1, 10)
+//console.log (startPairNumber) 
 
 export default pairNumbers
 

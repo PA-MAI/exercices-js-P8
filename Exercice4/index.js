@@ -6,7 +6,7 @@ const myButton = document.getElementById('myButton');
             //le message existe?
             if (!document.getElementById('errorMessage')) {
             // Créer le message 
-            const message = document.createElement('div');
+            const message = document.createElement('p');
             message.classList.add('message');
             message.id = 'errorMessage';
             message.textContent = 'Bonjour, vous avez cliqué sur le bouton !';
