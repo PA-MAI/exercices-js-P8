@@ -5,7 +5,7 @@ function convertToBinary() {
 
     // Vérification avec RegExp : uniquement chiffres et un point valide
     if (!/^\d+(\.\d+)?$/.test(inputValue)) {
-        resultField.textContent = "Erreur : Entrez un nombre valide (ex: 10 ou 10.5)";
+        resultField.textContent = "";
         return;
     }
 

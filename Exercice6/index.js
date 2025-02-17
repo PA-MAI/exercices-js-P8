@@ -18,7 +18,7 @@ function calculateResult() {
 
         // Vérifie la division par zéro
         if (display.value.includes("/0")) {
-            display.value = "Erreur";
+            display.value = "Division by zero is not allowed";
             return;
         }
 
